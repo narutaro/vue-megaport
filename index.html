@@ -4,7 +4,13 @@
 	<head>
 		<title>title</title>
 		<meta charset="utf-8">
+		<!--
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+		-->
+		<link rel="stylesheet" href="http://getskeleton.com/dist/css/normalize.css">
+		<link rel="stylesheet" href="http://getskeleton.com/dist/css/skeleton.css">
+		<link rel="stylesheet" href="static/css/custom.css">
 		<!--
 		<style>
 			.columns {
@@ -12,20 +18,51 @@
 			}
 		</style>
 		-->
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+</script>
 	</head>
 
 	<body>
+		<div class="container">
+		<section class="header">
+      <h2 class="title">A dead simple, responsive Megaport UI.</h2>
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/NTT_Communications_logo.svg/200px-NTT_Communications_logo.svg.png" alt="logo">
+    </section>
+		</div>
 
-	<h1>Nexcenter customer portal</h1>
 
 	<!-- .container is main centered wrapper -->
-	<div class="container">
+		<div class="container">
+
+<ul id="example-1">
+  <li v-for="item in items">
+    {{ item.message }}
+  </li>
+</ul>
+
+<table class="u-full-width" id="app">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Abstruct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="result in results">
+      <td>{{ result.title }}</td>
+      <td>{{ result.abstract }}</td>
+    </tr>
+  </tbody>
+</table>
 
  	 <!-- columns should be the immediate child of a .row -->
- 	 <div class="row">
- 	   <div class="one column">One</div>
- 	   <div class="eleven columns">Eleven</div>
- 	 </div>
+		<div class="row">
+ 	 	  <div class="one column">One</div>
+ 	  	<div class="eleven columns">Eleven</div>
+ 	 	</div>
 	
  	 <!-- just use a number and class 'column' or 'columns' -->
  	 <div class="row">
@@ -44,6 +81,33 @@
  	 </div>
 
 	</div>
+
+<!--
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+
+const vm = new Vue({
+  el: '#app',
+  data: {
+    results: [
+      {title: "the very first post", abstract: "lorem ipsum some test dimpsum"},
+      {title: "and then there was the second", abstract: "lorem ipsum some test dimsum"},
+      {title: "third time's a charm", abstract: "lorem ipsum some test dimsum"},
+      {title: "four the last time", abstract: "lorem ipsum some test dimsum"}
+    ]
+  }
+});
+</script>
+-->
+<script src="mp.js"></script>
 
 	</body>
 
