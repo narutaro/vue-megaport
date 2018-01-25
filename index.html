@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
 		-->
+		<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="http://getskeleton.com/dist/css/normalize.css">
 		<link rel="stylesheet" href="http://getskeleton.com/dist/css/skeleton.css">
 		<link rel="stylesheet" href="static/css/custom.css">
@@ -37,11 +38,50 @@
 	<!-- .container is main centered wrapper -->
 		<div class="container">
 
+<!--
 <ul id="example-1">
   <li v-for="item in items">
     {{ item.message }}
   </li>
 </ul>
+
+<ul id="location">
+	<h2>{{ results.message }}</h2>
+  <li v-for="l in results.data">
+    {{ l.country }}
+  </li>
+</ul>
+-->
+
+<table class="u-full-width" id="location">
+	<caption><h5>{{ results.message }}</h5></caption>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>country</th>
+      <th>postcode</th>
+      <th>city</th>
+      <th>street</th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="i in results.data">
+      <td>{{ i.id }}</td>
+      <td>{{ i.name }}</td>
+      <td>{{ i.country }}</td>
+      <td>{{ i.address.postcode }}</td>
+      <td>{{ i.address.city }}</td>
+      <td>{{ i.address.street }}</td>
+      <td>{{ i.longitude }}</td>
+      <td>{{ i.latitude }}</td>
+      <td>{{ i.status }}</td>
+    </tr>
+  </tbody>
+</table>
 
 <table class="u-full-width" id="app">
   <thead>
@@ -108,6 +148,7 @@ const vm = new Vue({
 </script>
 -->
 <script src="mp.js"></script>
+<!-- <script src="axios-test.js"></script> -->
 
 	</body>
 

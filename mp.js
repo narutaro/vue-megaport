@@ -1,3 +1,4 @@
+/*
 const vm = new Vue({
   el: '#app',
   data: {
@@ -7,5 +8,20 @@ const vm = new Vue({
       {title: "third time's a charm", abstract: "lorem ipsum some test dimsum"},
       {title: "four the last time", abstract: "lorem ipsum some test dimsum"}
     ]
+  }
+});
+*/
+
+const vm = new Vue({
+  el: '#location',
+  data: {
+    results: []
+  },
+  mounted() {
+    axios.get('https://api-staging.megaport.com/v2/locations')
+		.then(response => {this.results = response.data})
+		console.log(this.results);
+		console.dir(this.results);
+		console.log(JSON.stringify(this.results));
   }
 });
