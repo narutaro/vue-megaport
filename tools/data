@@ -1,0 +1,53 @@
+{
+  "data": {
+    "name": "m e",
+    "new": false,
+    "companyId": 1269,
+    "personUid": "e08e42fc-4561-45ce-af38-621cc3e4fa55",
+    "personId": 11083,
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36",
+    "language": "English",
+    "session": "7a173274-4d88-4be9-b2e2-0e2fc3b73c9d",
+    "timeZone": null,
+    "locale": "United States",
+    "permissions": {},
+    "sourceIp": "223.218.106.166",
+    "username": "me@me.com",
+    "firstName": "m",
+    "lastName": "e",
+    "companyName": "Public Access",
+    "loginDate": 1518333599899,
+    "expiryDate": null,
+    "companyUid": "bec27ded-29fb-43dd-8df8-894eb5ca1e98",
+    "channelPartner": false,
+    "supportOverride": false,
+    "supportOverrideUid": null,
+    "region": null,
+    "email": "me@me.com",
+    "apiKey": false,
+    "authorities": {
+      "bec27ded-29fb-43dd-8df8-894eb5ca1e98": {
+        "end_user": true
+      }
+    },
+    "token": "7a173274-4d88-4be9-b2e2-0e2fc3b73c9d",
+    "fullName": "m e",
+    "companyType": "DEFAULT",
+    "nearestCountry": "Hong Kong",
+    "requireTotp": false,
+    "accountManager": {
+      "name": "Henry Wagner",
+      "firstName": "Henry",
+      "lastName": "Wagner",
+      "email": "henry.wagner@megaport.com",
+      "active": true,
+      "uid": "6629de06-da45-4e97-aaa6-9dd1d4848657",
+      "featureFlags": [],
+      "newsletter": true,
+      "promotions": true
+    },
+    "featureFlags": [],
+    "forcePassword": false
+  },
+  "message": "Login successfully"
+}

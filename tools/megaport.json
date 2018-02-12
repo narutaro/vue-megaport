@@ -1,0 +1,12 @@
+[
+  {
+    "locationId": 36,
+    "term": 12,
+    "productName": "test2",
+    "productType": "MEGAPORT",
+    "createDate": 1452475039656,
+    "portSpeed": 1000,
+    "virtual": false,
+    "market": "SG"
+  }
+]

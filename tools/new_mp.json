@@ -1,0 +1,11 @@
+[
+	{
+		"productName": "My New Port",
+		"term": 24,
+		"productType": "MEGAPORT",
+		"portSpeed": 10000,
+		"locationId": 36,
+		"associatedIxs": [ ],
+		"associatedVxcs": [ ]
+	}
+]
