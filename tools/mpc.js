@@ -16,13 +16,16 @@ var megaport = new Megaport('https://api-staging.megaport.com/v2/');
 megaport.auth({
   //username: 'narusan@mac.com',
   //password: 'megaport123',
-	token: '17a3d75a-f620-488b-b7f4-54d172e8f981'
+	token: '5f05e2ea-ca5a-4399-adc7-75c4a57c9d9e'
 });
 
 megaport.ready(
   function(credentials) {
-    //console.log(credentials);
+    console.log('--- credentials---');
+    console.log(credentials);
+    console.log('--- credentials---');
 
+/*
 		megaport.company(credentials.companyId).update({
 		  tradingName: 'AAAAAAAAAAAA',
 		}).then(
@@ -36,13 +39,17 @@ megaport.ready(
 				console.log(profileObj);
 			}
 		);
+*/
 
-		megaport.profile().then(
+    console.log('--- profile ---');
+		//megaport.profile(credentials.personId).then(
+		megaport.profile(credentials.personId).get().then(
 			function (profileObj) {
 				//output(profileObj);
 				console.log(profileObj);
 			}
 		);
+    console.log('--- profile ---');
 
   }
 );
