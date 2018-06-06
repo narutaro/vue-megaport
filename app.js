@@ -1,37 +1,49 @@
-/*
-function loadScript('./static/js/megaport.js/megaport.js') {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = url;
-};
-*/
-// https://github.com/megaport/megaport.js
-//var Megaport = require("./static/js/megaport.js/megaport.js");
-//var megaport = new Megaport('https://api-staging.megaport.com/v2/');
 var megaport = new mp('https://api-staging.megaport.com/v2/');
-//console.log(mp.toString());
-console.log(megaport.toString());
-
-//var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-
-//megaport = new mp('https://api-staging.i.megaport.com/v2/');
-
-// for dumping a object
-//var util = require('util');
-
-/*
+//console.log(megaport.toString());
 
 megaport.auth({
   //username: 'narusan@mac.com',
   //password: 'megaport123',
-	token: 'c3915bff-f285-4f5b-9b92-90258a810120'
+	token: '9074ed24-0cfd-46c8-83c3-06a054792835'
 });
 
 megaport.ready(
   function(credentials) {
+
     console.log('--- credentials---');
     console.log(credentials);
     console.log('--- credentials---');
+
+		let loc = megaport.lists('locations').then(
+      function(locations) {
+        //console.log(locations);
+				return locations;
+      }
+    );
+
+	}
+);
+
+const vm = new Vue({
+  el: '#location',
+  data: {
+		loc: void(0),
+  },
+  methods: {
+   	ll: function(){
+			console.log("ll called!");
+			megaport.lists('locations').then(
+				function(locations){
+					console.log(locations);
+					vm.loc = locations;
+				} 
+			);
+		},
+  }
+});
+
+
+/*
 
 		megaport.company(credentials.companyId).update({
 		  tradingName: 'AAAAAAAAAAAA',
@@ -41,11 +53,13 @@ megaport.ready(
 			}
 		);
 
+
 		megaport.company(credentials.companyId).then(
 			function (profileObj) {
 				console.log(profileObj);
 			}
 		);
+
 
     console.log('--- profile ---');
 		//megaport.profile(credentials.personId).then(
@@ -62,6 +76,7 @@ megaport.ready(
 				console.log(locations);
 			}
 		);
+
 
   }
 );

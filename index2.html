@@ -33,7 +33,9 @@
 -->
 
 	<!-- Scripts added -->
+<!--
   <script src="static/js/site.js"></script>
+-->
   <script src="static/js/megaport.js/megaport.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -75,94 +77,38 @@
     <nav class="navbar">
       <div class="container">
         <ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" href="#locations" v-on:click="locations()">Locations</a></li>
-<!--
-          <li class="navbar-item">
-            <a class="navbar-link" href="#" data-popover="#codeNavPopover">Code</a>
-            <div id="codeNavPopover" class="popover">
-              <ul class="popover-list">
-                <li class="popover-item">
-                  <a class="popover-link" href="#grid">Grid</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#typography">Typography</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#buttons">Buttons</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#forms">Forms</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#lists">Lists</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#code">Code</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#tables">Tables</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#queries">Queries</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#utilities">Utilities</a>
-                </li>
-              </ul>
-            </div>
-          </li>
--->
+          <li class="navbar-item"><a class="navbar-link" href="#locations" v-on:click="ll()">Locations</a></li>
           <li class="navbar-item"><a class="navbar-link" href="#examples">Examples</a></li>
-<!--
-          <li class="navbar-item">
-            <a class="navbar-link" href="#" data-popover="#moreNavPopover">More</a>
-            <div id="moreNavPopover" class="popover">
-              <ul class="popover-list">
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton">On Github</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#browser-support">Browsers</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#license">License</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#extensions">Extensions</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton/releases">Versions</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#colophon">Colophon</a>
-                </li>
-              </ul>
-            </div>
-          </li>
--->
         </ul>
       </div>
     </nav>
-
 
 <!--
   <button v-on:click="counter">+1</button>
   <p>The button above has been clicked {{ count }} times.</p>
 -->
 
+  <ol>
+    <li v-for="l in loc">
+      {{ l.country }}
+    </li>
+  </ol>
+
+<!--
 <table class="u-full-width value-props">
-	<caption><h3 class="docs-header">{{ results.message }}</h3></caption>
+	<caption><h3 class="docs-header">{{ }}</h3></caption>
   <thead>
     <tr>
-      <th v-for="k in filter">{{ k }}</th>
+      <th v-for="k in loc">{{ k }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr v-for="hash in results.data">
+    <tr v-for="hash in loc">
 			<td v-for="item in hash">{{ item }}</td>
     </tr>
   </tbody>
 </table>
+-->
 
 </div> <!-- <div id="location"> -->
 
