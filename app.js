@@ -1,10 +1,11 @@
-var megaport = new mp('https://api-staging.megaport.com/v2/');
+//var megaport = new mp('https://api-staging.megaport.com/v2/');
+var megaport = new mp('https://api.megaport.com/v2/');
 //console.log(megaport.toString());
 
 megaport.auth({
   //username: 'narusan@mac.com',
   //password: 'megaport123',
-	token: '9074ed24-0cfd-46c8-83c3-06a054792835'
+	token: 'c0edb666-0d14-436f-9c0d-8d4006d2773c'
 });
 
 megaport.ready(
