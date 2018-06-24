@@ -1,5 +1,5 @@
-//var megaport = new mp('https://api-staging.megaport.com/v2/');
-var megaport = new mp('https://api.megaport.com/v2/');
+var megaport = new mp('https://api-staging.megaport.com/v2/');
+//var megaport = new Megaport('https://api.megaport.com/v2/');
 //console.log(megaport.toString());
 
 megaport.auth({

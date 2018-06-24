@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="http://unpkg.com/vue/dist/vue.js"></script>
+
+
+<!-- import CSS -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!-- <script src="http://unpkg.com/element-ui/lib/umd/locale/ja.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.4.1/locale/en.js"></script>
+
+<link rel="stylesheet" href="app.css">
+
+
+  </head>
+  <body>
+    <table id="id_list">
+      <tr><th>name</th><th>address</th><th>birthday</th></tr>
+      <tr v-for="item in items"><td>{{item.namae}}</td><td>{{item.address}}</td><td>{{item.birthdate}}</td></tr>
+    </table>
+    <form id="id_form1">
+      <label>name
+        <input name="name_namae" id="id_namae" type="text" v-model="namae" />
+      </label>
+      <label>address
+        <input name="name_address" id="id_address" type="text" v-model="address" />
+      </label>
+      <label>birthday
+      <el-date-picker
+        name="name_birthdate" 
+        id="id_birthdate"
+        v-model="birthdate"
+        type="date"
+        placeholder="@">
+      </el-date-picker>
+      </label>
+      <button type="button" id="id_add_button" v-on:click="add">add</button><br>
+      <button type="button" id="id_save_button" v-on:click="save">save</button>
+    </form>
+
+<el-button type="primary" icon="el-icon-edit"></el-button>
+<el-button type="primary" icon="el-icon-share"></el-button>
+<el-button type="primary" icon="el-icon-delete"></el-button>
+<el-button type="primary" icon="el-icon-search">Search</el-button>
+<el-button type="primary">Upload<i class="el-icon-upload el-icon-right"></i></el-button>
+
+
+
+  </body>
+    <script>
+        ELEMENT.locale(ELEMENT.lang.en)
+        var list = new Vue({
+            el: '#id_list',
+            data: {
+              items: []
+            }
+        })
+        var form1 = new Vue({
+            el: '#id_form1',
+            data: {
+            namae: '',
+            address: '',
+            birthdate: ''
+            },
+            methods: {
+              add: function (event){
+                list.items.push({'namae': this.namae, 'address':this.address, 'birthdate': this.birthdate})
+                this.namae = ''
+                this.address = ''
+                this.birthdate = ''
+              },
+              save: function (event){
+                console.log(list.items)
+              }
+            }
+        })
+    </script>
+</html>
