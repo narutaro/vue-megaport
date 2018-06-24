@@ -11,7 +11,10 @@
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.4.1/locale/en.js"></script>
 	<link rel="stylesheet" href="app.css">
-	<script src="static/js/megaport.js.old/megaport.js"></script> // old version megaport.js
+	<!-- NEW version megaport.js
+	<script src="static/js/megaport.js/megaport.js"></script> 
+	-->
+	<script src="static/js/megaport.js.old/megaport.js"></script> <!-- OLD version megaport.js -->
 
 </head>
 
@@ -30,7 +33,7 @@
 				<el-menu default-active="1" class="el-menu-vertical-demo">
 					<el-menu-item index="1">
 						<i class="el-icon-location"></i>
-						<span>Megaport location</span>
+						<span v-on:click="getLocation()">Megaport location</span>
 					</el-menu-item>
 					<el-menu-item index="2" disabled>
 						<i class="el-icon-document"></i>
@@ -45,8 +48,7 @@
 		</el-aside>
 
     <el-main>
-
-<template>
+<!-- sample table
   <el-table :data="tableData" style="width: 100%">
     <el-table-column
       prop="date"
@@ -76,7 +78,16 @@
       </template>
     </el-table-column>
   </el-table>
-</template>
+-->
+
+  <el-table :data="location" style="width: 100%">
+    <el-table-column prop="id" label="id" width="100"></el-table-column>
+    <el-table-column prop="name" label="name"></el-table-column>
+    <el-table-column prop="country" label="country" width="180"></el-table-column>
+    <el-table-column prop="metro" label="metro" width="180"></el-table-column>
+    <el-table-column prop="market" label="market" width="180"></el-table-column>
+    <el-table-column prop="status" label="status" width="180"></el-table-column>
+  </el-table>
 
 		</el-main>
 
@@ -88,8 +99,22 @@
 </body>
 
   <script>
+
+//megaport.js
+var megaport = new mp('https://api-staging.megaport.com/v2/'); // with OLD version megaport.js
+//var megaport = new Megaport('https://api.megaport.com/v2/'); // with NEW version megaport.js
+//console.log(megaport.toString());
+
+megaport.auth({
+  //username: 'narusan@mac.com',
+  //password: 'megaport123',
+  token: 'c0edb666-0d14-436f-9c0d-8d4006d2773c'
+});
+
+
+//vue.js
 		ELEMENT.locale(ELEMENT.lang.en)
-    new Vue({
+    var vm = new Vue({
 			el: '#app',
 			data: function() {
       return {
@@ -113,10 +138,22 @@
           name: 'Tom',
           address: 'No. 189, Grove St, Los Angeles',
           tag: 'Office'
-        }]
+        }],
+				location: [{country: 'US', status: 'active'}, {country: 'JP', status: 'active'}]
       }
     },
     methods: {
+			getLocation(){
+
+    let loc = megaport.lists('locations').then(
+      function(locations) {
+        console.log(locations);
+        //return locations;
+				vm.location = locations;
+      }
+    );
+
+			},
       formatter(row, column) {
         return row.address;
       },
@@ -129,8 +166,28 @@
       }
     }
     })
-  </script>
 
-	<script src="app.js"></script>
+
+megaport.ready(
+  function(credentials) {
+
+    console.log(credentials);
+
+/*
+    let loc = megaport.lists('locations').then(
+      function(locations) {
+        console.log(locations);
+        return locations;
+      }
+    );
+*/
+
+  }
+);
+
+
+</script>
+
+<!--	<script src="app.js"></script> -->
 
 </html>
