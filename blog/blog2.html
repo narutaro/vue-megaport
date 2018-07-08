@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.4.1/locale/en.js"></script>
+	<link rel="stylesheet" href="app.css">
+
+</head>
+
+
+<body>
+
+<div id="app">
+<el-container>
+  <el-header height="100px"><img src="static/img/placeholder-logo-2-300x167.png" height="100" align="left"></el-header>
+	<el-container>
+		<el-aside width="200px">
+  		<el-col :span="24">
+				<el-menu default-active="1" class="el-menu-vertical-demo">
+					<el-menu-item index="1">
+						<i class="el-icon-location"></i>
+						<span>Location</span>
+					</el-menu-item>
+					<el-menu-item index="2" disabled>
+						<i class="el-icon-document"></i>
+						<span>Navigator Three</span>
+					</el-menu-item>
+					<el-menu-item index="3">
+						<i class="el-icon-setting"></i>
+						<span>Navigator Four</span>
+					</el-menu-item>
+				</el-menu>
+			</el-col>
+		</el-aside>
+
+    <el-main>
+			<el-table :data="location" style="width: 100%">
+				<el-table-column prop="id" label="id" width="100"></el-table-column>
+				<el-table-column prop="name" label="name"></el-table-column>
+				<el-table-column prop="country" label="country" width="180"></el-table-column>
+				<el-table-column prop="metro" label="metro" width="180"></el-table-column>
+				<el-table-column prop="market" label="market" width="180"></el-table-column>
+				<el-table-column prop="status" label="status" width="180"></el-table-column>
+			</el-table>
+		</el-main>
+  </el-container>
+</el-container>
+</div>
+
+</body>
+
+<script>
+
+ELEMENT.locale(ELEMENT.lang.en)
+var vm = new Vue({
+	el: '#app',
+	data: function() {
+		return {
+			location: [{id: 1, name: 'Site1', country: 'USA', metro: 'San Jose', market: 'US', status: 'Active'},
+									{id: 2, name: 'Site2', country: 'USA', metro: 'San Mateo', market: 'US', status: 'Active'},
+									{id: 3, name: 'Site3', country: 'USA', metro: 'San Rafael', market: 'US', status: 'Active'}]
+		}
+	}
+})
+
+</script>
+
+</html>

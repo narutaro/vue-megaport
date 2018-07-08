@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.4.1/locale/en.js"></script>
+	<link rel="stylesheet" href="../app.css">
+
+</head>
+
+
+<body>
+
+<div id="app">
+<el-container>
+  <el-header height="100px">
+		<img src="../static/img/placeholder-logo-2-300x167.png" height="100" align="left">
+	</el-header>
+	<el-container>
+		<el-aside width="200px">
+  		<el-col :span="24">
+				<el-menu default-active="1" class="el-menu-vertical-demo">
+					<el-menu-item index="1">
+						<i class="el-icon-location"></i>
+						<span>Location</span>
+					</el-menu-item>
+					<el-menu-item index="2">
+						<i class="el-icon-document"></i>
+						<router-link to="/foo"><span>foo</span></router-link>
+					</el-menu-item>
+					<el-menu-item index="3">
+						<i class="el-icon-setting"></i>
+						<router-link to="/bar"><span>bar</span></router-link>
+					</el-menu-item>
+				</el-menu>
+			</el-col>
+		</el-aside>
+
+    <el-main>
+			<router-view></router-view>
+			<el-table :data="location" style="width: 100%">
+				<el-table-column prop="id" label="id" width="100"></el-table-column>
+				<el-table-column prop="name" label="name"></el-table-column>
+				<el-table-column prop="country" label="country" width="180"></el-table-column>
+				<el-table-column prop="metro" label="metro" width="180"></el-table-column>
+				<el-table-column prop="market" label="market" width="180"></el-table-column>
+				<el-table-column prop="status" label="status" width="180"></el-table-column>
+			</el-table>
+		</el-main>
+  </el-container>
+</el-container>
+</div>
+
+</body>
+
+<script>
+
+// 0. If using a module system (e.g. via vue-cli), import Vue and VueRouter
+// and then call `Vue.use(VueRouter)`.
+
+// 1. Define route components.
+// These can be imported from other files
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>'}
+
+// 2. Define some routes
+// Each route should map to a component. The "component" can
+// either be an actual component constructor created via
+// `Vue.extend()`, or just a component options object.
+// We'll talk about nested routes later.
+const routes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar }
+]
+
+// 3. Create the router instance and pass the `routes` option
+// You can pass in additional options here, but let's
+// keep it simple for now.
+const router = new VueRouter({
+  routes // short for `routes: routes`
+})
+
+ELEMENT.locale(ELEMENT.lang.en)
+var vm = new Vue({
+	router,
+	el: '#app',
+	data: function() {
+		return {
+			location: [{id: 1, name: 'Site1', country: 'USA', metro: 'San Jose', market: 'US', status: 'Active'},
+									{id: 2, name: 'Site2', country: 'USA', metro: 'San Mateo', market: 'US', status: 'Active'},
+									{id: 3, name: 'Site3', country: 'USA', metro: 'San Rafael', market: 'US', status: 'Active'}]
+		}
+	}
+})
+
+
+// 4. Create and mount the root instance.
+// Make sure to inject the router with the router option to make the
+// whole app router-aware.
+// const app = new Vue({
+//   router
+// }).$mount('#app')
+
+// Now the app has started!  
+</script>
+
+</html>
