@@ -58,6 +58,10 @@
 
 // 2. Define route components.
 const Location = { template: `
+
+<location-table></location-table>
+
+<!--
       <el-table :data="location" style="width: 100%">
         <el-table-column prop="id" label="id" width="100"></el-table-column>
         <el-table-column prop="name" label="name"></el-table-column>
@@ -66,6 +70,7 @@ const Location = { template: `
         <el-table-column prop="market" label="market" width="180"></el-table-column>
         <el-table-column prop="status" label="status" width="180"></el-table-column>
       </el-table>
+-->
 `}
 const Foo = { template: '<div>foo</div>' }
 const Bar = { template: '<div>bar</div>'}
@@ -82,11 +87,34 @@ const router = new VueRouter({
   routes // short for `routes: routes`
 })
 
+//
+Vue.component('location-table', {
+	data: function() {
+		return {
+			location: [{id: 1, name: 'Site1', country: 'USA', metro: 'San Jose', market: 'US', status: 'Active'},
+									{id: 2, name: 'Site2', country: 'USA', metro: 'San Mateo', market: 'US', status: 'Active'},
+									{id: 3, name: 'Site3', country: 'USA', metro: 'San Rafael', market: 'US', status: 'Active'}]
+		}
+	},
+	//template: '<h1>test</h1>'
+	template: `
+      <el-table :data="location" style="width: 100%">
+        <el-table-column prop="id" label="id" width="100"></el-table-column>
+        <el-table-column prop="name" label="name"></el-table-column>
+        <el-table-column prop="country" label="country" width="180"></el-table-column>
+        <el-table-column prop="metro" label="metro" width="180"></el-table-column>
+        <el-table-column prop="market" label="market" width="180"></el-table-column>
+        <el-table-column prop="status" label="status" width="180"></el-table-column>
+      </el-table>
+	`
+})
+
 ELEMENT.locale(ELEMENT.lang.en)
 var vm = new Vue({
 	// 5. Inject the router in the Vue instance
 	router,	
-	el: '#app',
+	el: '#app'//,
+/*
 	data: function() {
 		return {
 			location: [{id: 1, name: 'Site1', country: 'USA', metro: 'San Jose', market: 'US', status: 'Active'},
@@ -94,7 +122,9 @@ var vm = new Vue({
 									{id: 3, name: 'Site3', country: 'USA', metro: 'San Rafael', market: 'US', status: 'Active'}]
 		}
 	}
+*/
 })
+
 
 </script>
 

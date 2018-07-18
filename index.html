@@ -1,178 +1,119 @@
-<html lang="en">
-	<head>
+<!DOCTYPE html>
+<html>
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>Megaport UI</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+<head>
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.4.1/locale/en.js"></script>
+	<link rel="stylesheet" href="app.css">
+	<!-- NEW version megaport.js
+	<script src="static/js/megaport.js/megaport.js"></script> 
+	-->
+	<script src="static/js/megaport.js.old/megaport.js"></script> <!-- OLD version megaport.js -->
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="http://getskeleton.com/dist/css/normalize.css">
-  <link rel="stylesheet" href="http://getskeleton.com/dist/css/skeleton.css">
-  <link rel="stylesheet" href="static/css/custom.css">
-
-
-<!-- Scripts -->
-<!--
-  <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
--->
-	<script id="twitter-wjs" src="http://platform.twitter.com/widgets.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<!--
-  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-  <link rel="stylesheet" href="css/github-prettify-theme.css">
--->
-
-	<!-- Scripts added -->
-  <script src="static/js/site.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-  <!-- Favicon –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="dist/images/favicon.png">
-
-	<script type="text/javascript" charset="utf-8" async="" src="https://platform.twitter.com/js/button.df1da1fef194d8f8f3fd803a219a8177.js"></script>
 </head>
 
-<body class="code-snippets-visible">
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <section class="header">
-      <h2 class="title">A dead simple, responsive Megaport UI.</h2>
-			<img class="value-img" src="static/img/sd-ex-320.png" alt="logo">
-<!--
-      <div class="value-props row">
-        <div class="four columns value-prop">
-          <img class="value-img" src="">
-          Light as a feather at ~400 lines &amp; built with mobile in mind.
-        </div>
-        <div class="four columns value-prop">
-          <img class="value-img" src="">
-          Styles designed to be a starting point, not a UI framework.
-        </div>
-        <div class="four columns value-prop">
-          <img class="value-img" src="">
-          Quick to start with zero compiling or installing necessary.
-        </div>
-      </div>
--->
-    </section>
+<body>
 
-<div id="location">
+<div id="app">
+<el-container>
+  <el-header height="100px"><img src="static/img/placeholder-logo-2-300x167.png" height="100" align="left"></el-header>
+	<el-container>
+		<el-aside width="200px">
+  		<el-col :span="24">
+				<el-menu default-active="1" class="el-menu-vertical-demo">
+					<el-menu-item index="1">
+						<i class="el-icon-location"></i>
+						<span v-on:click="getLocation()">Location</span>
+					</el-menu-item>
+					<el-menu-item index="2" disabled>
+						<i class="el-icon-document"></i>
+						<span>Navigator Three</span>
+					</el-menu-item>
+					<el-menu-item index="3">
+						<i class="el-icon-setting"></i>
+						<span>Navigator Four</span>
+					</el-menu-item>
+				</el-menu>
+			</el-col>
+		</el-aside>
 
-    <div class="navbar-spacer"></div>
-    <nav class="navbar">
-      <div class="container">
-        <ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" href="#locations" v-on:click="locations()">Locations</a></li>
-<!--
-          <li class="navbar-item">
-            <a class="navbar-link" href="#" data-popover="#codeNavPopover">Code</a>
-            <div id="codeNavPopover" class="popover">
-              <ul class="popover-list">
-                <li class="popover-item">
-                  <a class="popover-link" href="#grid">Grid</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#typography">Typography</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#buttons">Buttons</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#forms">Forms</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#lists">Lists</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#code">Code</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#tables">Tables</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#queries">Queries</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#utilities">Utilities</a>
-                </li>
-              </ul>
-            </div>
-          </li>
--->
-          <li class="navbar-item"><a class="navbar-link" href="#examples">Examples</a></li>
-<!--
-          <li class="navbar-item">
-            <a class="navbar-link" href="#" data-popover="#moreNavPopover">More</a>
-            <div id="moreNavPopover" class="popover">
-              <ul class="popover-list">
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton">On Github</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#browser-support">Browsers</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#license">License</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#extensions">Extensions</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton/releases">Versions</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#colophon">Colophon</a>
-                </li>
-              </ul>
-            </div>
-          </li>
--->
-        </ul>
-      </div>
-    </nav>
-
-
-<!--
-  <button v-on:click="counter">+1</button>
-  <p>The button above has been clicked {{ count }} times.</p>
--->
-
-<table class="u-full-width value-props">
-	<caption><h3 class="docs-header">{{ results.message }}</h3></caption>
-  <thead>
-    <tr>
-      <th v-for="k in filter">{{ k }}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="hash in results.data">
-			<td v-for="item in hash">{{ item }}</td>
-    </tr>
-  </tbody>
-</table>
-
-</div> <!-- <div id="location"> -->
-
-
-	</div>
-
-	<script src="mp.js"></script>
+    <el-main>
+			<el-table :data="location" style="width: 100%">
+				<el-table-column prop="id" label="id" width="100"></el-table-column>
+				<el-table-column prop="name" label="name"></el-table-column>
+				<el-table-column prop="country" label="country" width="180"></el-table-column>
+				<el-table-column prop="metro" label="metro" width="180"></el-table-column>
+				<el-table-column prop="market" label="market" width="180"></el-table-column>
+				<el-table-column prop="status" label="status" width="180"></el-table-column>
+			</el-table>
+		</el-main>
+  </el-container>
+</el-container>
+</div>
 
 </body>
+
+<script>
+
+//megaport.js
+var megaport = new mp('https://api.megaport.com/v2/'); // with OLD version megaport.js
+//var megaport = new Megaport('https://api.megaport.com/v2/'); // with NEW version megaport.js
+//console.log(megaport.toString());
+
+megaport.auth({
+  //username: '',
+  //password: '',
+  token: '' // see go/megaport
+});
+
+
+//vue.js
+ELEMENT.locale(ELEMENT.lang.en)
+var vm = new Vue({
+	el: '#app',
+	data: function() {
+		return {
+			location: []
+		}
+	},
+	methods: {
+		getLocation(){
+			let loc = megaport.lists('locations').then(
+				function(locations) {
+					console.log(locations);
+					//return locations;
+					vm.location = locations;
+				}
+			);
+		},
+   	formatter(row, column) {
+   		return row.address;
+   	},
+   	filterTag(value, row) {
+   		return row.tag === value;
+   	},
+   	filterHandler(value, row, column) {
+   		const property = column['property'];
+     	return row[property] === value;
+   	}
+	}
+})
+
+
+megaport.ready(
+  function(credentials) {
+    console.log(credentials);
+  }
+);
+
+</script>
+
 </html>

@@ -1,39 +1,46 @@
 <html lang="en">
 	<head>
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- Basic Page Needs -->
+  
   <meta charset="utf-8">
   <title>Megaport UI</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- Mobile Specific Meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- FONT -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- CSS -->
   <link rel="stylesheet" href="http://getskeleton.com/dist/css/normalize.css">
   <link rel="stylesheet" href="http://getskeleton.com/dist/css/skeleton.css">
   <link rel="stylesheet" href="static/css/custom.css">
 
 
-  <!-- Scripts –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script id="twitter-wjs" src="http://platform.twitter.com/widgets.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- Scripts -->
+<!--
+  <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+-->
+	<script id="twitter-wjs" src="http://platform.twitter.com/widgets.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<!--
   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
   <link rel="stylesheet" href="css/github-prettify-theme.css">
+-->
 
 	<!-- Scripts added -->
+<!--
   <script src="static/js/site.js"></script>
+-->
+  <script src="static/js/megaport.js/megaport.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-  <!-- Favicon –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="dist/images/favicon.png">
 
 	<script type="text/javascript" charset="utf-8" async="" src="https://platform.twitter.com/js/button.df1da1fef194d8f8f3fd803a219a8177.js"></script>
@@ -41,131 +48,74 @@
 
 <body class="code-snippets-visible">
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- Primary Page Layout -->
   <div class="container">
     <section class="header">
       <h2 class="title">A dead simple, responsive Megaport UI.</h2>
-      <a class="button button-primary" href="https://github.com/dhg/Skeleton/releases/download/2.0.4/Skeleton-2.0.4.zip" onclick="_gaq.push(['_trackEvent', 'skeleton', 'download'])">Download</a>
+			<img class="value-img" src="static/img/sd-ex-320.png" alt="logo">
+<!--
       <div class="value-props row">
         <div class="four columns value-prop">
-          <img class="value-img" src="images/feather.svg">
+          <img class="value-img" src="">
           Light as a feather at ~400 lines &amp; built with mobile in mind.
         </div>
         <div class="four columns value-prop">
-          <img class="value-img" src="images/pens.svg">
+          <img class="value-img" src="">
           Styles designed to be a starting point, not a UI framework.
         </div>
         <div class="four columns value-prop">
-          <img class="value-img" src="images/watch.svg">
+          <img class="value-img" src="">
           Quick to start with zero compiling or installing necessary.
         </div>
       </div>
+-->
     </section>
+
+<div id="location">
 
     <div class="navbar-spacer"></div>
     <nav class="navbar">
       <div class="container">
         <ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" href="#locations">Locations</a></li>
-          <li class="navbar-item">
-            <a class="navbar-link" href="#" data-popover="#codeNavPopover">Code</a>
-            <div id="codeNavPopover" class="popover">
-              <ul class="popover-list">
-                <li class="popover-item">
-                  <a class="popover-link" href="#grid">Grid</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#typography">Typography</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#buttons">Buttons</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#forms">Forms</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#lists">Lists</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#code">Code</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#tables">Tables</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#queries">Queries</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="#utilities">Utilities</a>
-                </li>
-              </ul>
-            </div>
-          </li>
+          <li class="navbar-item"><a class="navbar-link" href="#locations" v-on:click="ll()">Locations</a></li>
           <li class="navbar-item"><a class="navbar-link" href="#examples">Examples</a></li>
-          <li class="navbar-item">
-            <a class="navbar-link" href="#" data-popover="#moreNavPopover">More</a>
-            <div id="moreNavPopover" class="popover">
-              <ul class="popover-list">
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton">On Github</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#browser-support">Browsers</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#license">License</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#extensions">Extensions</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton/releases">Versions</a>
-                </li>
-                <li class="popover-item">
-                  <a class="popover-link" href="https://github.com/dhg/Skeleton#colophon">Colophon</a>
-                </li>
-              </ul>
-            </div>
-          </li>
         </ul>
       </div>
     </nav>
 
-<table class="u-full-width value-props" id="location">
-  <caption><h5 class="docs-header">{{ results.message }}</h5></caption>
+<!--
+  <button v-on:click="counter">+1</button>
+  <p>The button above has been clicked {{ count }} times.</p>
+-->
+
+<!--
+  <ol>
+    <li v-for="l in loc">
+      {{ l.country }}
+    </li>
+  </ol>
+-->
+
+<table class="u-full-width value-props">
+	<caption><h3 class="docs-header">{{ }}</h3></caption>
   <thead>
     <tr>
-      <th>id</th>
-      <th>name</th>
-      <th>country</th>
-      <th>postcode</th>
-      <th>city</th>
-      <th>street</th>
-      <th>longitude</th>
-      <th>latitude</th>
-      <th>status</th>
+      <th v-for="k in loc">{{ k }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr v-for="i in results.data">
-      <td>{{ i.id }}</td>
-      <td>{{ i.name }}</td>
-      <td>{{ i.country }}</td>
-      <td>{{ i.address.postcode }}</td>
-      <td>{{ i.address.city }}</td>
-      <td>{{ i.address.street }}</td>
-      <td>{{ i.longitude }}</td>
-      <td>{{ i.latitude }}</td>
-      <td>{{ i.status }}</td>
+    <tr v-for="hash in loc">
+			<td v-for="item in hash">{{ item }}</td>
     </tr>
   </tbody>
 </table>
 
+</div> <!-- <div id="location"> -->
+
 
 	</div>
 
-	<script src="mp.js"></script>
+	<script src="app.js"></script>
 
 </body>
 </html>

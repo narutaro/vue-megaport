@@ -1,58 +1,85 @@
-<!DOCTYPE html>
-<html>
-
+<html lang="en">
 	<head>
-		<title>title</title>
-		<meta charset="utf-8">
-		<!--
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
-		-->
-		<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="http://getskeleton.com/dist/css/normalize.css">
-		<link rel="stylesheet" href="http://getskeleton.com/dist/css/skeleton.css">
-		<link rel="stylesheet" href="static/css/custom.css">
-		<!--
-		<style>
-			.columns {
-				background: #EEE;
-			}
-		</style>
-		-->
-		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	</head>
 
-	<body>
-		<div class="container">
-		<section class="header">
-      <h2 class="title">A dead simple, responsive Megaport UI.</h2>
-			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/NTT_Communications_logo.svg/200px-NTT_Communications_logo.svg.png" alt="logo">
-    </section>
-		</div>
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Megaport UI</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="http://getskeleton.com/dist/css/normalize.css">
+  <link rel="stylesheet" href="http://getskeleton.com/dist/css/skeleton.css">
+  <link rel="stylesheet" href="static/css/custom.css">
 
 
-	<!-- .container is main centered wrapper -->
-		<div class="container">
-
+<!-- Scripts -->
 <!--
-<ul id="example-1">
-  <li v-for="item in items">
-    {{ item.message }}
-  </li>
-</ul>
-
-<ul id="location">
-	<h2>{{ results.message }}</h2>
-  <li v-for="l in results.data">
-    {{ l.country }}
-  </li>
-</ul>
+  <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+-->
+	<script id="twitter-wjs" src="http://platform.twitter.com/widgets.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<!--
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+  <link rel="stylesheet" href="css/github-prettify-theme.css">
 -->
 
-<div class="navbar-spacer"></div>
-<ul class="navbar-list">
-          <li class="navbar-item"><a class="navbar-link" href="#intro">Intro</a></li>
+	<!-- Scripts added -->
+  <script src="static/js/site.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <!-- Favicon –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="dist/images/favicon.png">
+
+	<script type="text/javascript" charset="utf-8" async="" src="https://platform.twitter.com/js/button.df1da1fef194d8f8f3fd803a219a8177.js"></script>
+</head>
+
+<body class="code-snippets-visible">
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <section class="header">
+      <h2 class="title">A dead simple, responsive Megaport UI.</h2>
+			<img class="value-img" src="static/img/sd-ex-320.png" alt="logo">
+<!--
+      <div class="value-props row">
+        <div class="four columns value-prop">
+          <img class="value-img" src="">
+          Light as a feather at ~400 lines &amp; built with mobile in mind.
+        </div>
+        <div class="four columns value-prop">
+          <img class="value-img" src="">
+          Styles designed to be a starting point, not a UI framework.
+        </div>
+        <div class="four columns value-prop">
+          <img class="value-img" src="">
+          Quick to start with zero compiling or installing necessary.
+        </div>
+      </div>
+-->
+    </section>
+
+<div id="location">
+
+    <div class="navbar-spacer"></div>
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a class="navbar-link" href="#locations" v-on:click="locations()">Locations</a></li>
+<!--
           <li class="navbar-item">
             <a class="navbar-link" href="#" data-popover="#codeNavPopover">Code</a>
             <div id="codeNavPopover" class="popover">
@@ -87,7 +114,9 @@
               </ul>
             </div>
           </li>
+-->
           <li class="navbar-item"><a class="navbar-link" href="#examples">Examples</a></li>
+<!--
           <li class="navbar-item">
             <a class="navbar-link" href="#" data-popover="#moreNavPopover">More</a>
             <div id="moreNavPopover" class="popover">
@@ -113,106 +142,37 @@
               </ul>
             </div>
           </li>
+-->
         </ul>
+      </div>
+    </nav>
 
-<table class="u-full-width" id="location">
-	<caption><h5>{{ results.message }}</h5></caption>
+
+<!--
+  <button v-on:click="counter">+1</button>
+  <p>The button above has been clicked {{ count }} times.</p>
+-->
+
+<table class="u-full-width value-props">
+	<caption><h3 class="docs-header">{{ results.message }}</h3></caption>
   <thead>
     <tr>
-      <th>id</th>
-      <th>name</th>
-      <th>country</th>
-      <th>postcode</th>
-      <th>city</th>
-      <th>street</th>
-      <th>longitude</th>
-      <th>latitude</th>
-      <th>status</th>
+      <th v-for="k in filter">{{ k }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr v-for="i in results.data">
-      <td>{{ i.id }}</td>
-      <td>{{ i.name }}</td>
-      <td>{{ i.country }}</td>
-      <td>{{ i.address.postcode }}</td>
-      <td>{{ i.address.city }}</td>
-      <td>{{ i.address.street }}</td>
-      <td>{{ i.longitude }}</td>
-      <td>{{ i.latitude }}</td>
-      <td>{{ i.status }}</td>
+    <tr v-for="hash in results.data">
+			<td v-for="item in hash">{{ item }}</td>
     </tr>
   </tbody>
 </table>
 
-<table class="u-full-width" id="app">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Abstruct</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="result in results">
-      <td>{{ result.title }}</td>
-      <td>{{ result.abstract }}</td>
-    </tr>
-  </tbody>
-</table>
+</div> <!-- <div id="location"> -->
 
- 	 <!-- columns should be the immediate child of a .row -->
-		<div class="row">
- 	 	  <div class="one column">One</div>
- 	  	<div class="eleven columns">Eleven</div>
- 	 	</div>
-	
- 	 <!-- just use a number and class 'column' or 'columns' -->
- 	 <div class="row">
- 	   <div class="two columns">Two</div>
- 	   <div class="ten columns">Ten</div>
- 	 </div>
-	
- 	 <!-- there are a few shorthand columns widths as well -->
- 	 <div class="row">
- 	   <div class="one-third column">1/3</div>
- 	   <div class="two-thirds column">2/3</div>
- 	 </div>
- 	 <div class="row">
- 	   <div class="one-half column">1/2</div>
- 	   <div class="one-half column">1/2</div>
- 	 </div>
 
 	</div>
 
-<!--
-<script>
-var example1 = new Vue({
-  el: '#example-1',
-  data: {
-    items: [
-      { message: 'Foo' },
-      { message: 'Bar' }
-    ]
-  }
-})
+	<script src="mp.js"></script>
 
-const vm = new Vue({
-  el: '#app',
-  data: {
-    results: [
-      {title: "the very first post", abstract: "lorem ipsum some test dimpsum"},
-      {title: "and then there was the second", abstract: "lorem ipsum some test dimsum"},
-      {title: "third time's a charm", abstract: "lorem ipsum some test dimsum"},
-      {title: "four the last time", abstract: "lorem ipsum some test dimsum"}
-    ]
-  }
-});
-</script>
--->
-<script src="mp.js"></script>
-<!-- <script src="axios-test.js"></script> -->
-
-	</body>
-
+</body>
 </html>
-
