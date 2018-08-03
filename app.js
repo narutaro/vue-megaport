@@ -5,7 +5,7 @@ var megaport = new mp('https://api-staging.megaport.com/v2/'); // with OLD versi
 megaport.auth({
   //username: '',
   //password: '',
-	token: 'c0edb666-0d14-436f-9c0d-8d4006d2773c'
+	token: ''
 });
 
 megaport.ready(

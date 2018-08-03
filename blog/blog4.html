@@ -57,23 +57,9 @@
 <script>
 
 // 2. Define route components.
-const Location = { template: `
-
-<location-table></location-table>
-
-<!--
-      <el-table :data="location" style="width: 100%">
-        <el-table-column prop="id" label="id" width="100"></el-table-column>
-        <el-table-column prop="name" label="name"></el-table-column>
-        <el-table-column prop="country" label="country" width="180"></el-table-column>
-        <el-table-column prop="metro" label="metro" width="180"></el-table-column>
-        <el-table-column prop="market" label="market" width="180"></el-table-column>
-        <el-table-column prop="status" label="status" width="180"></el-table-column>
-      </el-table>
--->
-`}
+const Location = { template: '<location-table></location-table>' } // 9. Use the component here
 const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>'}
+const Bar = { template: '<div>bar</div>' }
 
 // 3. Define some routes
 const routes = [
@@ -87,7 +73,7 @@ const router = new VueRouter({
   routes // short for `routes: routes`
 })
 
-//
+// 8. Define component
 Vue.component('location-table', {
 	data: function() {
 		return {
@@ -96,7 +82,6 @@ Vue.component('location-table', {
 									{id: 3, name: 'Site3', country: 'USA', metro: 'San Rafael', market: 'US', status: 'Active'}]
 		}
 	},
-	//template: '<h1>test</h1>'
 	template: `
       <el-table :data="location" style="width: 100%">
         <el-table-column prop="id" label="id" width="100"></el-table-column>
@@ -113,18 +98,8 @@ ELEMENT.locale(ELEMENT.lang.en)
 var vm = new Vue({
 	// 5. Inject the router in the Vue instance
 	router,	
-	el: '#app'//,
-/*
-	data: function() {
-		return {
-			location: [{id: 1, name: 'Site1', country: 'USA', metro: 'San Jose', market: 'US', status: 'Active'},
-									{id: 2, name: 'Site2', country: 'USA', metro: 'San Mateo', market: 'US', status: 'Active'},
-									{id: 3, name: 'Site3', country: 'USA', metro: 'San Rafael', market: 'US', status: 'Active'}]
-		}
-	}
-*/
+	el: '#app'
 })
-
 
 </script>
 
