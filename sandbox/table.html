@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.4.1/locale/en.js"></script>
+	<link rel="stylesheet" href="app.css">
+	<!--	<script src="app.js"></script> -->
+
+</head>
+<body>
+  <div id="app">
+
+<el-container>
+  <!-- <el-header><img src="smiley.gif" alt="Smiley face" height="42" width="42"></el-header> -->
+  <el-header height="100px"><img src="static/img/sd-ex-320.png" height="100" align="left"></el-header>
+	<el-container>
+
+		<el-aside width="200px">
+  		<el-col :span="24">
+				<el-menu default-active="1" class="el-menu-vertical-demo">
+					<el-menu-item index="1">
+						<i class="el-icon-location"></i>
+						<span>Megaport location</span>
+					</el-menu-item>
+					<el-menu-item index="2" disabled>
+						<i class="el-icon-document"></i>
+						<span>Navigator Three</span>
+					</el-menu-item>
+					<el-menu-item index="3">
+						<i class="el-icon-setting"></i>
+						<span>Navigator Four</span>
+					</el-menu-item>
+				</el-menu>
+			</el-col>
+		</el-aside>
+
+    <el-main>
+
+<template>
+  <el-table
+    :data="tableData"
+    style="width: 100%">
+    <el-table-column
+      prop="date"
+      label="Date"
+      sortable
+      width="180"
+      :filters="[{text: '2016-05-01', value: '2016-05-01'}, {text: '2016-05-02', value: '2016-05-02'}, {text: '2016-05-03', value: '2016-05-03'}, {text: '2016-05-04', value: '2016-05-04'}]"
+      :filter-method="filterHandler"
+    >
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="Name"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="address"
+      label="Address"
+      :formatter="formatter">
+    </el-table-column>
+    <el-table-column
+      prop="tag"
+      label="Tag"
+      width="100"
+      :filters="[{ text: 'Home', value: 'Home' }, { text: 'Office', value: 'Office' }]"
+      :filter-method="filterTag"
+      filter-placement="bottom-end">
+      <template slot-scope="scope">
+        <el-tag
+          :type="scope.row.tag === 'Home' ? 'primary' : 'success'"
+          disable-transitions>{{scope.row.tag}}</el-tag>
+      </template>
+    </el-table-column>
+  </el-table>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        tableData: [{
+          date: '2016-05-03',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles',
+          tag: 'Home'
+        }, {
+          date: '2016-05-02',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles',
+          tag: 'Office'
+        }, {
+          date: '2016-05-04',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles',
+          tag: 'Home'
+        }, {
+          date: '2016-05-01',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles',
+          tag: 'Office'
+        }]
+      }
+    },
+    methods: {
+      formatter(row, column) {
+        return row.address;
+      },
+      filterTag(value, row) {
+        return row.tag === value;
+      },
+      filterHandler(value, row, column) {
+        const property = column['property'];
+        return row[property] === value;
+      }
+    }
+  }
+</script>
+
+		</el-main>
+
+
+
+  </el-container>
+</el-container>
+
+<!--
+    <el-button @click="visible = true">Button</el-button>
+    <el-dialog :visible.sync="visible" title="Hello world">
+      <p>Try Element</p>
+    </el-dialog>
+
+<i class="el-icon-edit"></i>
+<i class="el-icon-share"></i>
+<i class="el-icon-delete"></i>
+<el-button type="primary" icon="el-icon-search">Search</el-button>
+
+      <el-date-picker
+        name="name_birthdate" 
+        id="id_birthdate"
+        v-model="birthdate"
+        type="date"
+        placeholder="@">
+      </el-date-picker>
+
+-->
+
+<div>
+
+</body>
+
+  <script>
+		ELEMENT.locale(ELEMENT.lang.en)
+    new Vue({
+      el: '#app',
+    data() {
+      return {
+        tableData: [{
+          date: '2016-05-03',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles',
+          tag: 'Home'
+        }, {
+          date: '2016-05-02',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles',
+          tag: 'Office'
+        }, {
+          date: '2016-05-04',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles',
+          tag: 'Home'
+        }, {
+          date: '2016-05-01',
+          name: 'Tom',
+          address: 'No. 189, Grove St, Los Angeles',
+          tag: 'Office'
+        }]
+      }
+    },
+    methods: {
+      formatter(row, column) {
+        return row.address;
+      },
+      filterTag(value, row) {
+        return row.tag === value;
+      },
+      filterHandler(value, row, column) {
+        const property = column['property'];
+        return row[property] === value;
+      }
+    }
+//      data: function() {
+//        return { visible: false }
+//      }
+    })
+  </script>
+
+
+
+</html>
