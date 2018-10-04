@@ -22,7 +22,7 @@
 	<div id="app">
 		<el-container>
 			<el-header height="100px">
-				<img src="../../static/img/placeholder-logo-2-300x167.png" height="100" align="left">
+				<img src="../../img/placeholder-logo-2-300x167.png" height="100" align="left">
 			</el-header>
 		<el-container>
 			<el-aside width="200px">
@@ -53,6 +53,76 @@
 </body>
 
 <!-- Megaport -->
+<script>
+megaport = new mp('https://api.megaport.com/v2/');
+
+megaport.auth({
+  username: '',
+  password: ''
+});
+
+/*
+megaport.ready(
+  function(credentials) {
+    console.log(credentials);
+  }
+);
+*/
+
+/*
+megaport.dashboard().then(
+  function (menustats) {
+    console.log(menustats);
+  }
+);
+*/
+
+
+/* ERROR - is not a function
+megaport.profile().then(
+  function (profileObj) {
+    output(profileObj);
+  }
+);
+*/
+
+/* ERROR - undefined
+megaport.company().then(
+  function (profileObj) {
+    console.log(profileObj);
+  }
+);
+*/
+
+/*
+megaport.list('locations'){
+	console.log
+}
+*/
+
+
+/*
+megaport.markets().then(
+  function (m) {
+    //output(m);
+    console.log(m);
+  }
+);
+*/
+
+/*
+megaport.priceBook()
+  .megaport({
+    locationId: 2, //int
+    speed: 1000, //int
+    term: 1 // months (not required)
+  }).then(function(priceobj){
+    //output(priceobj);
+    console.log(priceobj);
+  });
+*/
+
+</script>
 
 <!-- Load components -->
 <script src="./location.js"></script>

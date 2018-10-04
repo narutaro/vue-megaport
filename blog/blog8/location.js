@@ -9,14 +9,17 @@ Vue.component('location-table', {
 	},
 	methods: { 
 		getLocation: function(){	// 10-2. function for server API call
-			let url = 'https://api-staging.megaport.com/v2/locations';
-			fetch(url)
-      	.then(response => response.json())
-      	.then(json => {			
-						this.location = json.data; 	// 10-3. Accessing data in [[PromiseValue]]
-      			console.log(json.data);
-					}) 
-      	.catch(error => console.error(error))
+			megaport.lists('locations').then(
+				// As this is promise object, 'then chain' to access to the data may solve?
+			  function(res) {
+			    console.log(res);
+			    console.log(Array.isArray(res));
+					//return res;
+			    //this.location = res;
+			  }
+			);
+			//this.location = locations;
+			//console.log(locations);
 		}
 	},
 	template: `

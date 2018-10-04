@@ -14,6 +14,7 @@ Vue.component('location-table', {
       	.then(response => response.json())
       	.then(json => {			
 						this.location = json.data; 	// 10-3. Accessing data in [[PromiseValue]]
+						console.log(Array.isArray(json.data));
       			console.log(json.data);
 					}) 
       	.catch(error => console.error(error))
